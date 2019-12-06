@@ -1,0 +1,17 @@
+---
+
+id: b6012569-841a-43e8-b63e-3f325b4254f9
+name: acme
+facts:
+  - property: comp.host.name
+    value: www.acme.com
+  - property: attacker.addr.server
+    value: 198.51.100.1:8888
+
+rules: 
+  - action: ALLOW
+    fact: host.root.noPwd
+    match: apt-get
+  - action: ALLOW
+    fact: host.file.config
+    match: /wp-config.php

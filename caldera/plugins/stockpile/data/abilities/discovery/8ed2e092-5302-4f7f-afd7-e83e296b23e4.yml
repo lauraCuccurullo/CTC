@@ -1,0 +1,24 @@
+---
+
+- id: 8ed2e092-5302-4f7f-afd7-e83e296b23e4
+  name: Config File Discovery
+  description: Find config file
+  tactic: discovery
+  technique:
+    attack_id: T1083
+    name: File and Directory Discovery
+  platforms:
+    linux:
+      sh:
+        command: |
+          echo #{comp.user.password} | sudo -S su -c 'find / -name wp-config.php'
+
+        parsers:
+          plugins.stockpile.app.parsers.basic:
+            - source: host.file.config
+
+  requirements:
+    plugins.stockpile.app.requirements.basic:
+      - source: comp.user.name
+      - edge: has_password
+      - target: comp.user.password

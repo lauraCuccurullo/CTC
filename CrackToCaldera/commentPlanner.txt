@@ -1,0 +1,79 @@
+--piano con commenti ed eliminando un po' di cose che mi sembravano inutili
+listeningOn 8 www_1 tcp 80 ------------------------------------>
+hasAccount  28 client_1 client_user1_1 eve_1 ------------------> 
+hasUser  29 client_1 client_user1_1 supersecret admin ---------> 
+knows 6 eve_1 alice -------------------------------------------> RemoteEnumerable nmap --script 
+listeningOn 3 www_1 tcp 22 ------------------------------------> ?
+hostACL 25 client_1 www_1 tcp 22 ------------------------------> nmap (default)
+hasAccount  4 www_1 www_user1_1 eve_1 -------------------------> precond hydra + attack lat move
+hasAccount  5 www_1 www_root_1 eve_1 --------------------------> precond sudo -l + attack sudo
+hasAccount  5 www_1 www_root_1 eve_1 --------------------------> IDEM SOPRA
+knows 10 eve_1 venerus ----------------------------------------> Wordpress find / -name wp-config.php
+hasAccount  28 client_1 client_user1_1 eve_1 ------------------> 
+hasUser  29 client_1 client_user1_1 supersecret admin ---------> 
+hasUser  7 www_1 www_user1_1 xexexexe user -------------------->
+hasUser  2 www_1 www_root_1 None admin ------------------------>
+listeningOn 18 db_1 tcp 3306 ---------------------------------->
+hasAccount  4 www_1 www_user1_1 eve_1  ------------------------> IDEM SOPRA
+hasAccount  5 www_1 www_root_1 eve_1  -------------------------> IDEM SOPRA
+hostACL 25 www_1 db_1 tcp 3306  -------------------------------> nmap (default)
+knows 21 eve_1 DB_confidential --------------------------------> precon cat wp-config.php + attack mysql root
+hasAccount  4 www_1 www_user1_1 eve_1 -------------------------> IDEM SOPRA
+
+--piano intero
+listeningOn 8 www_1 tcp 80
+isConnected 33 Provider_1 Simint1_subnet_1
+isConnected 33 Provider_1 Outside_subnet_1
+isConnected 33 Provider_1 Extnet_subnet_1
+isConnected 30 client_1 Simint1_subnet_1
+isConnected 23 root ns_1
+isConnected 20 db_1 Server_subnet_1
+isConnected 17 ns_1 DMZ_subnet_1
+isConnected 1 www_1 DMZ_subnet_1
+isConnected 13 Firewall_1 DMZ_subnet_1
+isConnected 13 Firewall_1 Outside_subnet_1
+isConnected 13 Firewall_1 Server_subnet_1
+isConnected 1 www_1 DMZ_subnet_1
+isConnected 1 www_1 DMZ_subnet_1
+isConnected 13 Firewall_1 DMZ_subnet_1
+isConnected 13 Firewall_1 Outside_subnet_1
+isConnected 13 Firewall_1 Server_subnet_1
+isConnected 13 Firewall_1 DMZ_subnet_1
+isConnected 13 Firewall_1 DMZ_subnet_1
+isConnected 13 Firewall_1 Outside_subnet_1
+isConnected 33 Provider_1 Outside_subnet_1
+isConnected 33 Provider_1 Outside_subnet_1
+isConnected 13 Firewall_1 Outside_subnet_1
+isConnected 17 ns_1 DMZ_subnet_1
+isConnected 1 www_1 DMZ_subnet_1
+isConnected 30 client_1 Simint1_subnet_1
+isConnected 23 root ns_1
+isConnected 33 Provider_1 Simint1_subnet_1
+isConnected 33 Provider_1 Simint1_subnet_1
+isConnected 33 Provider_1 Extnet_subnet_1
+isConnected 33 Provider_1 Outside_subnet_1
+isConnected 13 Firewall_1 Server_subnet_1
+isConnected 20 db_1 Server_subnet_1
+isConnected 33 Provider_1 Extnet_subnet_1
+hasAccount  28 client_1 client_user1_1 eve_1
+hasUser  29 client_1 client_user1_1 supersecret admin
+knows 6 eve_1 alice
+listeningOn 3 www_1 tcp 22
+hostACL 25 client_1 www_1 tcp 22
+hasAccount  4 www_1 www_user1_1 eve_1
+hasAccount  5 www_1 www_root_1 eve_1
+hasAccount  5 www_1 www_root_1 eve_1
+knows 10 eve_1 venerus
+hasAccount  28 client_1 client_user1_1 eve_1
+hasUser  29 client_1 client_user1_1 supersecret admin
+hasUser  7 www_1 www_user1_1 xexexexe user
+hasUser  2 www_1 www_root_1 None admin
+listeningOn 18 db_1 tcp 3306
+isConnected 30 client_1 Simint1_subnet_1
+isConnected 20 db_1 Server_subnet_1
+hasAccount  4 www_1 www_user1_1 eve_1
+hasAccount  5 www_1 www_root_1 eve_1
+hostACL 25 www_1 db_1 tcp 3306
+knows 21 eve_1 DB_confidential
+isConnected 13 Firewall_1 Server_subnet_1
+hasAccount  4 www_1 www_user1_1 eve_1

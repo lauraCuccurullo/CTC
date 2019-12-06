@@ -1,0 +1,22 @@
+description: Data exfiltration in Acme database
+id: 30fbd920-ac62-42cc-9413-0450691accb5
+name: acme attacker
+phases:
+  1: 
+    - c927fd39-7dd4-457a-a21b-918b0abc8c99 # nmap
+  2: 
+    - 2f1843dd-cca9-4b7c-a8c7-d860839db912 # enumerate account
+  3: 
+    - f3f6df4d-37cd-43e6-bb2a-693e84e255c6 # hydra brute force
+  4: 
+    - ae99b403-6e62-4025-9195-3f770b15ad69 # ssh lateral mov
+  5: 
+    #- c02a8d8d-d5d1-44ad-b6e7-33f2739be0dc #sudoers
+    - 0d7fd013-3310-4ff5-9c64-5cb99c282f46 #sudo -l
+  6: 
+    - 37744f41-89d1-4994-9acd-504272fb0170 # sudo priv escal
+  7: 
+    - 8ed2e092-5302-4f7f-afd7-e83e296b23e4 # find wp-config.php
+  8: 
+    - 95c508cc-c9f6-4b25-8163-7e4def2ea6df #cat wp-config.php
+

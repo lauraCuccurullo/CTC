@@ -1,0 +1,24 @@
+---
+
+id: ed32b9c3-9593-4c33-b0db-e2007315096b
+name: built-in
+facts:
+  - property: file.sensitive.extension
+    value: txt
+  - property: file.sensitive.extension
+    value: yml
+  - property: host.service.modifiable
+    value: fax
+  - property: target.org.name
+    value: mitre.org
+rules:
+  - action: DENY
+    fact: file.sensitive.extension
+    match: .*
+  - action: ALLOW
+    fact: file.sensitive.extension
+    match: txt
+  - action: ALLOW
+    fact: file.sensitive.extension
+    match: yml  
+  

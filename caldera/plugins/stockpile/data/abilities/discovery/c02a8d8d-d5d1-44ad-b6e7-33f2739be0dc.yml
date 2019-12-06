@@ -1,0 +1,14 @@
+---
+
+- id: c02a8d8d-d5d1-44ad-b6e7-33f2739be0dc
+  name: View sudoers access
+  description: 
+  tactic: Discovery
+  technique:
+    attack_id: T1087
+    name: Account Discovery
+  platforms:
+    linux:
+      sh:
+        command: |
+          cat /etc/sudoers

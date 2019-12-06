@@ -1,0 +1,10 @@
+c927fd39-7dd4-457a-a21b-918b0abc8c99, nmap
+2f1843dd-cca9-4b7c-a8c7-d860839db912, enumerate_account
+f3f6df4d-37cd-43e6-bb2a-693e84e255c6, hydra_brute_force
+ae99b403-6e62-4025-9195-3f770b15ad69, ssh_lateral_mov
+c02a8d8d-d5d1-44ad-b6e7-33f2739be0dc, sudoers
+0d7fd013-3310-4ff5-9c64-5cb99c282f46, sudo_l
+37744f41-89d1-4994-9acd-504272fb0170, sudo_eop
+8ed2e092-5302-4f7f-afd7-e83e296b23e4, wordpress_wp-config
+95c508cc-c9f6-4b25-8163-7e4def2ea6df, cat_wp-config
+95c508cc-c9f6-4b25-8163-7e4def2ea6df, my_sql_root

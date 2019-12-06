@@ -1,0 +1,20 @@
+---
+
+- id: 2f1843dd-cca9-4b7c-a8c7-d860839db912
+  name: Enumerate accounts wget
+  description: 
+  tactic: Discovery
+  technique:
+    attack_id: T1087
+    name: Account Discovery
+  platforms:
+    linux:
+      sh:
+        command: |
+          while read -r line; do RESULT="`wget echo http://#{comp.host.name}/~$line 2>&1| grep -oF '403'`"; if [ -n "${RESULT}" ]; then echo $line; fi; done < user.txt;
+        
+        payload: user.txt
+        
+        parsers:
+          plugins.stockpile.app.parsers.basic:
+            - source: comp.user.name

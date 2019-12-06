@@ -1,0 +1,51 @@
+---
+
+- paw: deathstar$darthvader
+  group: simulation
+  os: windows
+  location: C:\Users\Public
+  enabled: True
+  executors:
+    - pwsh
+    - psh
+
+- paw: xwing$redleader
+  group: simulation
+  os: darwin
+  location: /tmp
+  enabled: True
+  executors:
+    - sh
+
+- paw: millenniumfalcon$hansolo
+  group: simulation
+  os: linux
+  location: /tmp
+  enabled: True
+  executors:
+    - sh
+
+- paw: enterprise$picard
+  group: simulation
+  os: windows
+  location: C:\Users\Public
+  enabled: False
+  executors:
+    - pwsh
+    - psh
+
+- paw: voyager$janeway
+  group: simulation
+  os: darwin
+  location: /tmp
+  enabled: False
+  executors:
+    - sh
+
+- paw: defiant$sisko
+  group: simulation
+  os: linux
+  location: /tmp
+  enabled: False
+  executors:
+    - sh

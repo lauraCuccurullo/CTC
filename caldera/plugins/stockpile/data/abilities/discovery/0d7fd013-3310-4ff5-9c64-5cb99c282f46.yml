@@ -1,0 +1,18 @@
+---
+
+- id: 0d7fd013-3310-4ff5-9c64-5cb99c282f46
+  name: Account Discovery
+  description: View commands without password
+  tactic: discovery
+  technique:
+    attack_id: T1087
+    name: Account Discovery
+  platforms:
+    linux:
+      sh:
+        command: |
+          sudo -l | grep '(root) NOPASSWD:'
+
+        parsers:
+          plugins.stockpile.app.parsers.basic:
+            - source: host.root.noPwd

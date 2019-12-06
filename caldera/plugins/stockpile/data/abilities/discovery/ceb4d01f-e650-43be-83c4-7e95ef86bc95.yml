@@ -1,0 +1,18 @@
+---
+
+- id: ceb4d01f-e650-43be-83c4-7e95ef86bc95
+  name: Enumerate accounts nmap userdir
+  description: 
+  tactic: Discovery
+  technique:
+    attack_id: T1087
+    name: Account Discovery
+  platforms:
+    linux:
+      sh:
+        command: |
+          nmap --script=http-userdir-enum #{comp.host.name};
+        
+        parsers:
+          plugins.stockpile.app.parsers.basic:
+            - source: comp.user.name

@@ -1,0 +1,23 @@
+---
+
+- id: c927fd39-7dd4-457a-a21b-918b0abc8c99
+  name: Network Service Scanning
+  description: Get informations and store in file
+  tactic: discovery
+  technique:
+    attack_id: T1046
+    name: Network Service Scanning
+  platforms:
+    linux:
+      sh:
+        command: |
+          nmap "#{comp.host.name}" | grep "open";
+        
+        parsers:
+          plugins.stockpile.app.parsers.basic:
+            - source: host.state.service
+
+  requirements:
+    plugins.stockpile.app.requirements.basic:
+      - source: comp.host.name
+          

